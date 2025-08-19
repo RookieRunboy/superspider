@@ -44,7 +44,7 @@ SuperSpider 是一个功能强大的智能网页爬虫工具，专门设计用�
 
 ```bash
 # 克隆项目
-git clone https://github.com/RookieRunboy/superspider.git
+git clone https://github.com/runbo/superspider.git
 cd superspider
 
 # 安装依赖
