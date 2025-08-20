@@ -22,7 +22,7 @@ class Config:
                  excel_file: str = None,
                  output_dir: Path = None,
                  concurrent_limit: int = 5,
-                 timeout: int = 30,
+                 timeout: int = 15,
                  log_level: str = 'INFO',
                  output_format: str = 'pdf'):
         """
@@ -81,7 +81,7 @@ class Config:
         }
         
         # 重试配置
-        self.retry_times = 3
+        self.retry_times = 1
         self.retry_delay = 1
         
         # 文件类型配置

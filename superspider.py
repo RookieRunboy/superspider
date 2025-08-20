@@ -61,7 +61,7 @@ class SuperSpider:
         # 设置HTTP会话
         self.session = requests.Session()
         retry_strategy = Retry(
-            total=3,
+            total=self.config.retry_times,
             backoff_factor=1,
             status_forcelist=[429, 500, 502, 503, 504],
         )
