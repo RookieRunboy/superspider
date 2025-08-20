@@ -148,3 +148,47 @@ class FileManager:
                 shutil.rmtree(temp_dir)
         except Exception as e:
             raise FileError(f"清理临时目录失败: {e}")
+    
+    def rename_processed_file(self, excel_file: str) -> str:
+        """重命名已处理的Excel文件，添加【已执行】前缀
+        
+        Args:
+            excel_file: 原Excel文件路径
+            
+        Returns:
+            str: 重命名后的文件路径
+        """
+        try:
+            excel_path = Path(excel_file)
+            if not excel_path.exists():
+                raise FileError(f"Excel文件不存在: {excel_file}")
+            
+            # 获取文件名和扩展名
+            file_name = excel_path.stem
+            file_extension = excel_path.suffix
+            parent_dir = excel_path.parent
+            
+            # 检查是否已经有【已执行】前缀
+            if file_name.startswith('【已执行】'):
+                return str(excel_path)  # 已经重命名过，直接返回
+            
+            # 生成新的文件名
+            new_file_name = f"【已执行】{file_name}{file_extension}"
+            new_file_path = parent_dir / new_file_name
+            
+            # 如果目标文件已存在，添加数字后缀
+            counter = 1
+            while new_file_path.exists():
+                new_file_name = f"【已执行】{file_name}_{counter}{file_extension}"
+                new_file_path = parent_dir / new_file_name
+                counter += 1
+            
+            # 重命名文件
+            excel_path.rename(new_file_path)
+            
+            return str(new_file_path)
+            
+        except Exception as e:
+            if isinstance(e, FileError):
+                raise
+            raise FileError(f"重命名文件失败: {e}")

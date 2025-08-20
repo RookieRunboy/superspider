@@ -12,6 +12,7 @@ Excel处理模块
 import pandas as pd
 from pathlib import Path
 from typing import List, Dict, Any, Optional
+from datetime import datetime
 from error_handler import FileError
 
 
@@ -125,6 +126,78 @@ class ExcelProcessor:
                     return col
         
         return None
+    
+    def write_results_to_excel(self, excel_file: str, results: List[Dict[str, Any]]) -> None:
+        """
+        将爬取结果写回Excel文件
+        
+        Args:
+            excel_file: Excel文件路径
+            results: 包含爬取结果的字典列表
+        """
+        try:
+            excel_path = Path(excel_file)
+            if not excel_path.exists():
+                raise FileError(f"Excel文件不存在: {excel_file}")
+            
+            # 读取原始Excel文件
+            df = pd.read_excel(excel_file)
+            
+            # 创建结果字典，以index为键
+            results_dict = {result['index']: result for result in results}
+            
+            # 添加新列（如果不存在）
+            new_columns = {
+                '爬取状态': '未处理',
+                '下载附件数': 0,
+                'PDF生成状态': '未生成',
+                '错误详情': '',
+                '完成时间': ''
+            }
+            
+            for col_name, default_value in new_columns.items():
+                if col_name not in df.columns:
+                    df[col_name] = default_value
+            
+            # 更新结果数据
+            for index, row in df.iterrows():
+                row_index = index + 1  # Excel行号从1开始
+                if row_index in results_dict:
+                    result = results_dict[row_index]
+                    
+                    # 更新爬取状态
+                    if result.get('success', False):
+                        df.at[index, '爬取状态'] = '成功'
+                    else:
+                        df.at[index, '爬取状态'] = '失败'
+                    
+                    # 更新下载附件数
+                    df.at[index, '下载附件数'] = result.get('attachments_count', 0)
+                    
+                    # 更新PDF生成状态
+                    if result.get('pdf_generated', False):
+                        df.at[index, 'PDF生成状态'] = '已生成'
+                    elif result.get('pdf_error'):
+                        df.at[index, 'PDF生成状态'] = '生成失败'
+                    else:
+                        df.at[index, 'PDF生成状态'] = '未生成'
+                    
+                    # 更新错误详情
+                    error_msg = result.get('error', '')
+                    if error_msg:
+                        df.at[index, '错误详情'] = str(error_msg)[:200]  # 限制长度
+                    
+                    # 更新完成时间
+                    if result.get('completion_time'):
+                        df.at[index, '完成时间'] = result['completion_time']
+            
+            # 保存更新后的Excel文件
+            df.to_excel(excel_file, index=False)
+            
+        except Exception as e:
+            if isinstance(e, FileError):
+                raise
+            raise FileError(f"写入Excel文件失败: {e}")
     
     def _find_title_column(self, df: pd.DataFrame) -> Optional[str]:
         """查找标题列"""

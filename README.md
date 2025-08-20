@@ -77,16 +77,19 @@ pip install -r requirements.txt
 python superspider.py
 
 # 处理指定的Excel文件
-python superspider.py input/urls.xlsx
+python superspider.py data.xlsx
 
-# 指定输出格式为PDF
-python superspider.py input/urls.xlsx --format pdf
+# 生成PDF格式输出（默认已启用）
+python superspider.py data.xlsx --pdf
 
-# 设置并发数
-python superspider.py input/urls.xlsx --max-workers 10
+# 设置并发数为10
+python superspider.py data.xlsx --concurrent 10
 
-# 设置超时时间
-python superspider.py input/urls.xlsx --timeout 30
+# 设置超时时间为60秒
+python superspider.py data.xlsx --timeout 60
+
+# 设置日志级别为DEBUG
+python superspider.py data.xlsx --log-level DEBUG
 ```
 
 ### 3. 查看结果
@@ -96,10 +99,12 @@ python superspider.py input/urls.xlsx --timeout 30
 ```
 downloads/
 ├── 20250819_1430/          # 时间戳目录
-│   ├── attachments/         # 下载的附件
-│   ├── pdfs/               # 生成的PDF文件
-│   ├── report.html         # 处理报告
-│   └── superspider.log     # 执行日志
+│   ├── temp_work/          # 临时工作目录
+│   │   ├── attachments/    # 下载的附件
+│   │   └── pdfs/          # 生成的PDF文件
+│   ├── data.zip           # 打包的结果文件
+│   ├── execution_report.json # 执行报告
+│   └── superspider.log    # 执行日志
 ```
 
 ## 📖 详细使用说明
@@ -112,11 +117,11 @@ python superspider.py [excel_file] [options]
 
 **参数说明:**
 - `excel_file`: Excel文件路径（可选，默认处理input目录下所有Excel文件）
-- `--output-dir`: 输出目录（默认: downloads）
-- `--max-workers`: 最大并发数（默认: 5）
-- `--timeout`: 请求超时时间（默认: 30秒）
-- `--log-level`: 日志级别（DEBUG, INFO, WARNING, ERROR）
-- `--format`: 输出格式（html, pdf, both）
+- `--output-dir, -o`: 输出目录（默认: downloads）
+- `--concurrent, -c`: 并发数（默认: 5）
+- `--timeout, -t`: 请求超时时间（秒，默认: 30）
+- `--log-level`: 日志级别（DEBUG, INFO, WARNING, ERROR，默认: INFO）
+- `--pdf`: 生成PDF格式输出（默认启用）
 
 ### Excel文件格式
 
@@ -126,16 +131,22 @@ Excel文件应包含以下列：
 
 ### 配置选项
 
-可以通过修改脚本中的配置来自定义行为：
+可以通过修改config.py中的配置来自定义行为：
 
 ```python
-config = {
-    'max_workers': 5,           # 并发数
-    'timeout': 30,              # 超时时间
-    'retry_times': 3,           # 重试次数
-    'delay_between_requests': 1, # 请求间隔
-    'user_agents': [...],       # User-Agent列表
-    'output_format': 'pdf'      # 输出格式
+config = Config(
+    concurrent_limit=5,         # 并发数
+    timeout=30,                 # 超时时间（秒）
+    log_level='INFO'           # 日志级别
+)
+
+# 其他可配置项
+config.retry_times = 3              # 重试次数
+config.retry_delay = 1              # 重试延迟
+config.attachment_extensions = {    # 支持的附件格式
+    '.pdf', '.doc', '.docx', '.xls', '.xlsx', 
+    '.ppt', '.pptx', '.zip', '.rar', '.7z',
+    '.txt', '.csv', '.png', '.jpg', '.jpeg'
 }
 ```
 
@@ -201,8 +212,9 @@ custom_headers = {
 ## 📊 性能优化
 
 ### 并发处理
-- 默认并发数为5，可根据网络和系统性能调整
+- 默认并发数为5，可通过--concurrent参数调整
 - 建议并发数不超过10，避免对目标服务器造成压力
+- 使用ThreadPoolExecutor实现多线程并发下载
 
 ### 内存管理
 - 大文件分块处理，避免内存溢出
@@ -248,14 +260,17 @@ python superspider.py --log-level DEBUG
 
 ## 📝 更新日志
 
-### v2.0.0 (2025-08-19)
+### v2.0.0 (当前版本)
 - ✨ 完全重写PDF生成引擎，优化中文支持
 - 🔧 实现智能编码检测和处理
 - 🚀 添加多级字体回退策略
 - 📊 改进错误处理和日志系统
 - 🌏 完善中文字符显示效果
+- 📦 新增ZIP打包功能
+- 🏗️ 模块化架构重构
+- 📝 完善的执行报告生成
 
-### v1.0.0 (2025-08-18)
+### v1.0.0 (初始版本)
 - 🎉 初始版本发布
 - 📄 基础PDF生成功能
 - 📎 附件下载功能

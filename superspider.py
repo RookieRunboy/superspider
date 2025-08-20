@@ -24,6 +24,7 @@ import argparse
 import traceback
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple
+from datetime import datetime
 import requests
 import chardet
 from requests.adapters import HTTPAdapter
@@ -133,11 +134,28 @@ class SuperSpider:
             self.logger.info(f"成功读取 {len(urls_data)} 个URL")
             
             # 2. 执行处理流水线
-            results = self._run_pipeline(urls_data)
+            results, url_results = self._run_pipeline(urls_data)
             
             # 3. 生成执行报告
             execution_time = time.time() - start_time
             report = self._generate_report(results, execution_time)
+            
+            # 4. 将结果写回Excel文件
+            try:
+                self.logger.info("开始将结果写回Excel文件...")
+                self.excel_processor.write_results_to_excel(excel_file, url_results)
+                self.logger.info("结果写回Excel文件成功")
+            except Exception as e:
+                self.logger.error(f"写回Excel文件失败: {e}")
+            
+            # 5. 重命名已处理的Excel文件
+            try:
+                self.logger.info("开始重命名Excel文件...")
+                new_excel_path = self.file_manager.rename_processed_file(excel_file)
+                self.logger.info(f"Excel文件重命名成功: {new_excel_path}")
+                report['renamed_excel_file'] = new_excel_path
+            except Exception as e:
+                self.logger.error(f"重命名Excel文件失败: {e}")
             
             self.logger.info(f"任务完成，总耗时: {execution_time:.2f}秒")
             return report
@@ -147,14 +165,14 @@ class SuperSpider:
             self.logger.error(traceback.format_exc())
             raise
     
-    def _run_pipeline(self, urls_data: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def _run_pipeline(self, urls_data: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List[Dict[str, Any]]]:
         """执行处理流水线
         
         Args:
             urls_data: URL数据列表
             
         Returns:
-            Dict[str, Any]: 处理结果
+            Tuple[Dict[str, Any], List[Dict[str, Any]]]: (处理结果, URL详细结果列表)
         """
         results = {
             'parsed_urls': 0,
@@ -165,17 +183,34 @@ class SuperSpider:
             'pdf_files': []
         }
         
+        # 用于收集每个URL的详细执行结果
+        url_results = []
+        
         try:
             # 阶段1: 并发解析网页提取附件
             self.logger.info("开始解析网页提取附件...")
             all_attachments = []
             
             for url_data in urls_data:
+                url_result = {
+                    'index': url_data.get('index', 0),
+                    'url': url_data.get('url', ''),
+                    'title': url_data.get('title', ''),
+                    'success': False,
+                    'attachments_count': 0,
+                    'pdf_generated': False,
+                    'pdf_error': None,
+                    'error': None,
+                    'completion_time': None
+                }
+                
                 try:
                     url = url_data.get('url', '')
                     title = url_data.get('title', '')
                     
                     if not url:
+                        url_result['error'] = '无效的URL'
+                        url_results.append(url_result)
                         continue
                     
                     # 解析网页提取附件
@@ -183,12 +218,18 @@ class SuperSpider:
                     all_attachments.extend(attachments)
                     results['parsed_urls'] += 1
                     
+                    url_result['success'] = True
+                    url_result['attachments_count'] = len(attachments)
+                    
                     self.logger.info(f"解析完成: {title} - 找到 {len(attachments)} 个附件")
                     
                 except Exception as e:
                     error_msg = f"解析失败 {url_data.get('url', '')}: {e}"
                     self.logger.error(error_msg)
                     results['errors'].append(error_msg)
+                    url_result['error'] = str(e)
+                
+                url_results.append(url_result)
             
             # 阶段2: 并发下载附件
             if all_attachments:
@@ -202,11 +243,13 @@ class SuperSpider:
             if self.config.output_format == 'pdf':
                 self.logger.info("开始生成PDF文件...")
                 
-                # 收集需要转换为PDF的URL和标题
-                pdf_urls = [(data.get('url', ''), data.get('title', '')) 
-                           for data in urls_data if data.get('url')]
-                
-                for url, title in pdf_urls:
+                for i, url_data in enumerate(urls_data):
+                    url = url_data.get('url', '')
+                    title = url_data.get('title', '')
+                    
+                    if not url or i >= len(url_results):
+                        continue
+                    
                     try:
                         self.logger.debug(f"开始处理PDF: {title}, URL: {url}")
                         
@@ -229,18 +272,26 @@ class SuperSpider:
                         if pdf_path:
                             results['pdf_files'].append(pdf_path)
                             results['generated_pdfs'] += 1
+                            url_results[i]['pdf_generated'] = True
                             self.logger.info(f"PDF生成成功: {title}")
                         else:
+                            url_results[i]['pdf_error'] = 'PDF生成返回空路径'
                             self.logger.warning(f"PDF生成返回空路径: {title}")
                         
                     except Exception as e:
                         error_msg = f"PDF生成失败 {title}: {e}"
                         self.logger.error(error_msg)
                         results['errors'].append(error_msg)
+                        url_results[i]['pdf_error'] = str(e)
                 
                 self.logger.info(f"PDF生成完成: {results['generated_pdfs']} 个文件")
             
-            return results
+            # 为所有URL结果添加完成时间
+            completion_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            for url_result in url_results:
+                url_result['completion_time'] = completion_time
+            
+            return results, url_results
             
         except Exception as e:
             self.logger.error(f"流水线执行失败: {e}")
@@ -358,6 +409,40 @@ def main():
             print(f"找到 {len(excel_files)} 个Excel文件:")
             for file in excel_files:
                 print(f"  - {file}")
+            print()
+        
+        # 过滤已执行的Excel文件
+        original_count = len(excel_files)
+        filtered_files = []
+        ignored_files = []
+        
+        for excel_file in excel_files:
+            file_name = Path(excel_file).name
+            if '【已执行】' in file_name:
+                ignored_files.append(excel_file)
+            else:
+                filtered_files.append(excel_file)
+        
+        excel_files = filtered_files
+        
+        # 输出过滤结果
+        if ignored_files:
+            print(f"\n自动忽略 {len(ignored_files)} 个已执行的Excel文件:")
+            for file in ignored_files:
+                print(f"  - {Path(file).name}")
+            print()
+        
+        if not excel_files:
+            if ignored_files:
+                print("所有Excel文件都已执行完成，无需重复处理。")
+            else:
+                print("没有找到需要处理的Excel文件。")
+            sys.exit(0)
+        
+        if len(excel_files) != original_count:
+            print(f"实际需要处理 {len(excel_files)} 个Excel文件:")
+            for file in excel_files:
+                print(f"  - {Path(file).name}")
             print()
         
         # 处理每个Excel文件
