@@ -44,7 +44,7 @@ SuperSpider 是一个功能强大的智能网页爬虫工具，专门设计用�
 
 ```bash
 # 克隆项目
-git clone https://github.com/runbo/superspider.git
+git clone https://github.com/RookieRunboy/superspider.git
 cd superspider
 
 # 安装依赖
@@ -77,19 +77,19 @@ pip install -r requirements.txt
 python superspider.py
 
 # 处理指定的Excel文件
-python superspider.py data.xlsx
+python superspider.py input/urls.xlsx
 
 # 生成PDF格式输出（默认已启用）
-python superspider.py data.xlsx --pdf
+python superspider.py input/urls.xlsx --pdf
 
 # 设置并发数为10
-python superspider.py data.xlsx --concurrent 10
+python superspider.py input/urls.xlsx --concurrent 10
 
 # 设置超时时间为60秒
-python superspider.py data.xlsx --timeout 60
+python superspider.py input/urls.xlsx --timeout 60
 
 # 设置日志级别为DEBUG
-python superspider.py data.xlsx --log-level DEBUG
+python superspider.py input/urls.xlsx --log-level DEBUG
 ```
 
 ### 3. 查看结果
@@ -131,6 +131,7 @@ Excel文件应包含以下列：
 
 ### 配置选项
 
+<<<<<<< HEAD
 可以通过修改config.py中的配置来自定义行为：
 
 ```python
@@ -147,6 +148,7 @@ config.attachment_extensions = {    # 支持的附件格式
     '.pdf', '.doc', '.docx', '.xls', '.xlsx', 
     '.ppt', '.pptx', '.zip', '.rar', '.7z',
     '.txt', '.csv', '.png', '.jpg', '.jpeg'
+}
 }
 ```
 
@@ -260,6 +262,7 @@ python superspider.py --log-level DEBUG
 
 ## 📝 更新日志
 
+<<<<<<< HEAD
 ### v2.0.0 (当前版本)
 - ✨ 完全重写PDF生成引擎，优化中文支持
 - 🔧 实现智能编码检测和处理

@@ -695,8 +695,10 @@ class PDFGenerator:
             生成的PDF文件路径，失败时返回None
         """
         try:
-            # 直接使用title作为文件名，不进行额外清理
-            safe_title = title if title else "untitled"
+            # 清理文件名中的非法字符
+            safe_title = self._sanitize_filename(title)
+            if not safe_title:
+                safe_title = "untitled"
             
             # 生成PDF文件路径
             output_dir = Path(output_dir)
