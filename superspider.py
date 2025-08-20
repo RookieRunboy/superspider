@@ -372,7 +372,7 @@ def main():
                 file_name = Path(excel_file).stem
                 output_dir = base_output_dir / file_name
             else:
-                output_dir = Path(args.output_dir)
+                output_dir = None  # 让Config类自动创建时间命名的目录
             
             # 创建配置
             config = Config(
@@ -381,8 +381,11 @@ def main():
                 concurrent_limit=args.concurrent,
                 timeout=args.timeout,
                 log_level=args.log_level,
-                output_format='pdf' if args.pdf else 'html'
+                output_format='pdf'  # 默认生成PDF和附件
             )
+            
+            # 设置Excel文件信息，生成对应的zip文件名
+            config.set_excel_info(str(excel_file))
             
             # 设置日志
             logger = Logger(config.log_level, config.log_dir)
@@ -391,6 +394,26 @@ def main():
             # 运行爬虫
             spider = SuperSpider(config)
             results = spider.run(str(excel_file))
+            
+            # 创建zip文件
+            try:
+                logger.info(f"开始创建zip文件: {config.zip_filename}")
+                file_manager = FileManager(config)
+                success = file_manager.create_zip_file(
+                    config.temp_work_dir, 
+                    config.zip_file_path
+                )
+                
+                if success:
+                    logger.info(f"zip文件创建成功: {config.zip_file_path}")
+                    # 清理临时目录
+                    file_manager.cleanup_temp_directory(config.temp_work_dir)
+                    logger.info("临时目录清理完成")
+                else:
+                    logger.warning("zip文件创建失败")
+                    
+            except Exception as e:
+                logger.error(f"创建zip文件时出错: {e}")
             
             # 输出结果
             print(f"\n处理完成: {excel_file}")
@@ -401,6 +424,7 @@ def main():
             print(f"错误数: {results['total_errors']}")
             print(f"执行时间: {results['execution_time']:.2f}秒")
             print(f"输出目录: {results['output_dir']}")
+            print(f"zip文件: {config.zip_file_path}")
             
             if results['total_errors'] > 0:
                 print("\n错误详情:")

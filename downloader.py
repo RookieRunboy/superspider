@@ -33,6 +33,8 @@ class Downloader:
         self.config = config
         self.session = requests.Session()
         self.session.headers.update(self.config.headers)
+        # 用于跟踪每个title下的附件计数
+        self.title_attachment_counters = {}
     
     def download_files(self, attachments: List[Dict[str, Any]]) -> List[str]:
         """
@@ -80,15 +82,22 @@ class Downloader:
         """
         url = attachment['url']
         filename = attachment['filename']
+        page_title = attachment.get('page_title', '未知标题')
         
         try:
-            # 清理文件名
-            safe_filename = self._sanitize_filename(filename)
-            if not safe_filename:
-                safe_filename = self._extract_filename_from_url(url)
+            # 获取原始文件名
+            original_filename = self._sanitize_filename(filename)
+            if not original_filename:
+                original_filename = self._extract_filename_from_url(url)
+            
+            # 计算同一title下的附件序号
+            attachment_counter = self._get_attachment_counter(page_title)
+            
+            # 生成新的文件名格式：{title}_附件{n}_{original_attachment_name}
+            new_filename = f"{page_title}_附件{attachment_counter}_{original_filename}"
             
             # 生成文件路径
-            file_path = self.config.attachments_dir / safe_filename
+            file_path = self.config.attachments_dir / new_filename
             
             # 如果文件已存在，添加序号
             counter = 1
@@ -171,3 +180,19 @@ class Downloader:
                 return filename
         
         return f"file_{int(time.time())}.bin"
+    
+    def _get_attachment_counter(self, page_title: str) -> int:
+        """
+        获取指定title下的附件序号
+        
+        Args:
+            page_title: 页面标题
+            
+        Returns:
+            附件序号
+        """
+        if page_title not in self.title_attachment_counters:
+            self.title_attachment_counters[page_title] = 0
+        
+        self.title_attachment_counters[page_title] += 1
+        return self.title_attachment_counters[page_title]

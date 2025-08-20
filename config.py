@@ -42,20 +42,26 @@ class Config:
         self.log_level = log_level
         self.output_format = output_format
         
-        # 设置输出目录
+        # 设置输出目录 - 按运行时间精确到分钟命名
         if output_dir is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M")
             self.output_dir = Path('downloads') / timestamp
         else:
             self.output_dir = Path(output_dir)
         
-        # 创建子目录
-        self.attachments_dir = self.output_dir / 'attachments'
-        self.pdfs_dir = self.output_dir / 'pdfs'
+        # 创建临时工作目录（用于存放文件，最后会打包成zip）
+        self.temp_work_dir = self.output_dir / 'temp_work'
+        self.attachments_dir = self.temp_work_dir / 'attachments'
+        self.pdfs_dir = self.temp_work_dir / 'pdfs'
         self.log_dir = self.output_dir
+        
+        # zip文件相关配置
+        self.excel_filename = None  # 将在处理时设置
+        self.zip_filename = None    # 将在处理时设置
         
         # 创建目录
         self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.temp_work_dir.mkdir(parents=True, exist_ok=True)
         self.attachments_dir.mkdir(parents=True, exist_ok=True)
         self.pdfs_dir.mkdir(parents=True, exist_ok=True)
         
@@ -83,3 +89,14 @@ class Config:
             '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx',
             '.zip', '.rar', '.7z', '.tar', '.gz', '.txt', '.csv'
         }
+    
+    def set_excel_info(self, excel_file_path: str):
+        """设置Excel文件信息并生成对应的zip文件名
+        
+        Args:
+            excel_file_path: Excel文件路径
+        """
+        excel_path = Path(excel_file_path)
+        self.excel_filename = excel_path.stem  # 不包含扩展名的文件名
+        self.zip_filename = f"{self.excel_filename}.zip"
+        self.zip_file_path = self.output_dir / self.zip_filename

@@ -11,6 +11,7 @@
 
 import os
 import shutil
+import zipfile
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from error_handler import FileError
@@ -97,3 +98,53 @@ class FileManager:
             return total_size
         except Exception as e:
             raise FileError(f"获取目录大小失败: {e}")
+    
+    def create_zip_file(self, source_dir: Path, zip_file_path: Path, 
+                       attachments_folder_name: str = "附件", 
+                       pdfs_folder_name: str = "源网页PDF") -> bool:
+        """创建zip文件，包含附件和PDF两个文件夹
+        
+        Args:
+            source_dir: 源目录（包含attachments和pdfs子目录）
+            zip_file_path: 目标zip文件路径
+            attachments_folder_name: zip内附件文件夹名称
+            pdfs_folder_name: zip内PDF文件夹名称
+            
+        Returns:
+            bool: 是否成功创建
+        """
+        try:
+            with zipfile.ZipFile(zip_file_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                # 添加附件文件夹
+                attachments_dir = source_dir / 'attachments'
+                if attachments_dir.exists():
+                    for file_path in attachments_dir.rglob('*'):
+                        if file_path.is_file():
+                            # 在zip中的路径：附件文件夹/文件名
+                            arcname = f"{attachments_folder_name}/{file_path.name}"
+                            zipf.write(file_path, arcname)
+                
+                # 添加PDF文件夹
+                pdfs_dir = source_dir / 'pdfs'
+                if pdfs_dir.exists():
+                    for file_path in pdfs_dir.rglob('*'):
+                        if file_path.is_file():
+                            # 在zip中的路径：PDF文件夹/文件名
+                            arcname = f"{pdfs_folder_name}/{file_path.name}"
+                            zipf.write(file_path, arcname)
+            
+            return True
+        except Exception as e:
+            raise FileError(f"创建zip文件失败: {e}")
+    
+    def cleanup_temp_directory(self, temp_dir: Path):
+        """清理临时目录
+        
+        Args:
+            temp_dir: 要清理的临时目录
+        """
+        try:
+            if temp_dir.exists():
+                shutil.rmtree(temp_dir)
+        except Exception as e:
+            raise FileError(f"清理临时目录失败: {e}")

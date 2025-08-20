@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>下载中心</title>
+<meta  name="页面生成时间" content="2025-08-12 18:00:38" />
+<meta  name="缓存清理时间" content="2025-07-02 21:46:09"/>
+<meta  name="easysite版本" content="7.9.5"/>
+<meta name="keywords"  content="" />
+<meta name="description"  content="初始化频道：下载中心" />
+<link rel="stylesheet" type="text/css"  href="/rmyh/uiFramework/huilan-jquery-ui/css/huilan-jquery-ui.css" />
+<script type="text/javascript" src="/rmyh/uiFramework/huilan-jquery-ui/js/huilan-jquery-ui.js?self=true&skin=default"></script>
+ <link href="	
+/rmyh/uiFramework/commonResource/image/logo.ico" type="image/x-icon" rel="shortcut icon"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />   <link rel="stylesheet" type="text/css" href="/rmyh/template/rmyh.css" />
+  <script type="text/javascript" src="/rmyh/template/rmyh.js"></script>
+ </head>
+ <body>
+  <link rel="stylesheet" type="text/css" href="/rmyh/template/page/list_news/skin.css" /><div style="display:none" easysite="easysiteHiddenDiv">
+	<input id="contextPath" value="/eportal" type="hidden"/>
+	<input id="isOnlyUseCkeditorSourceMode" value="$isOnlyUseCkeditorSourceMode" type="hidden"/>
+	<input id="eprotalCurrentPageId" value="107165" type="hidden"/>
+	<input id="eprotalCurrentSiteId" value="101245" type="hidden"/>
+	<input id="eprotalCurrentSiteType" value="WEB" type="hidden"/>
+	<input id="eprotalCurrentSiteHideMaskLayer" value="no" type="hidden"/>
+	<input id="eprotalCurrentArticleKey"  value=""  type="hidden"/>
+	<input id="eprotalCurrentColumnId"  value=""  type="hidden"/>
+	<input id="isStaticRequest" value="yes" type="hidden"/>
+	<input id="isOpenStaticPageList" value="" type="hidden"/>
+	<input id="defaultPublishPage" value="3" type="hidden"/>
+	<input type='hidden' id='eportalappPortletId' value="3">
+	<input type='hidden' id='epsPortletId' value="1">
+	<input type='hidden' id='portaltoolsPortletId' value="2">
+	<script type="text/javascript" src="/rmyh/uiFramework/js/counting/chanelCounting.js"></script>
+	<input type="hidden" id="currentLoginMemberId"  value="" />
+	<input type="hidden" id="currentLoginMemberName"  value="" />
+	<input type="hidden" id="behaviourAnalysisSiteId"  value="" /> 
+			<input type="hidden" id="portalLastRequestUrl"  value="" />
+	<input type="hidden" id="portalJsessionId"  value="j_CSpQMyEjI9Cj9KLCm1z2u" />
+</div><style>
+/*导航css*/
+body{margin:0;padding:0;}
+a{ text-decoration:none; color:#333333;font-size: 12px;}
+.header{ width:950px; height:auto; clear:both; margin:0 auto;font-size: 12px;font-family: "宋体";}
+#logo{ width:950px; margin:auto; text-align:center; font-size:13px;font-weight:bold; }
+#logo .logo1{ width:950px; height:25px;background-color:#f0f0f0;}
+#biaotou{font-size:18px; width:119px;font-style:italic; font-weight:bold text-align:center; color:#ffffff; }
+#logo .logo1 font{ float:right; padding-right:20px; color:#ffffff}
+#logo .logo2 { width:950px; height:48px; color:#ffffff;}
+#logo .logo3{  margin-top:1px;}
+.cs td{ border-right:1px solid #ffffff;}
+.cs a{color:#ffffff;text-decoration:none;}
+.cs a:hover{color:#0f4a82;text-decoration:underline}
+
+/*导航css*/
+</style>
+<SCRIPT src="/rmyh/uiFramework/js/pbcjs/dllurl.js" type=text/javascript></SCRIPT>
+<div class="header" style="position: relative;">
+  <table width="950" height="20" border="0" align="center" cellpadding="0" cellspacing="0" class="top">
+    <tr>
+      <td align="left" valign="middle">　 <img src="/rmyh/template/common/header/dh_r1_c1.jpg" border="0" /> <a href="/rmyh/109339/index.html" class="hei12">术语表</a> 　<!-- <img src="/images/dh_r1_c4.jpg" border="0" /> <a href="/publish/main/926/index.html" class="hei12">常见问题</a> --> 
+        <img src="/rmyh/template/common/header/dh_r1_c8.jpg" border="0" /> <a href=" /rmyh/109342/index.html" class="hei12">网站地图</a>　 
+        <!-- <img src="/images/dh_r1_c11.jpg" border="0" /> <a href="/publish/main/933/index.html" class="hei12">更新日志</a> --> 
+        <img src="/rmyh/template/common/header/dh_r1_c14.jpg" border="0" /> <script  type="text/javascript">	 
+	var wa='<a href="http://www.pbc.gov.cn/goutongjiaoliu/113456/2986536/index.html" class="hei12">RSS订阅</a>';
+document.write(wa);
+	</script>　 
+        <!--       <img src="/images/dh_r1_c16.jpg" border="0" /> <script  type="text/javascript">	 
+	var wa='<a href="http://'+DL_SERVER+'/application/wap/wap.jsp" target="_blank" class="hei12">手机用户</a>';
+document.write(wa);
+	</script>  --></td>
+      <td align="right" valign="middle" class="hei12yw"><img src="/eportal/fileDir/zhifujiesuansi/resource/cms/2021/12/img_pc_site/4.png" class="wuzhangai" border="0"><a href="/AiWza/index.html" style="margin-right: 10px;" class="hei12">无障碍浏览</a><img src="/rmyh/template/common/header/dh_r1_c21.jpg" border="0" /> <a href="/en/3688006/index.html" class="hei12">English Version</a></td>
+    </tr>
+  </table>
+  <table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td height="114" valign="top"><img src="/rmyh/template/common/header/index_r1_c2.jpg" width="950" height="113" border="0"  class="rh_logo" /></td>
+    </tr>
+  </table>
+  <!--导航 -->
+  <div id="logo">
+    <div class="logo2" role="region" aria-label="信息公开导航区">
+      <table width="950" height="100%" cellpadding="0" cellspacing="0" border="0" role="navigation">
+        <tr>
+          <td width="119" align="center" valign="middle" id="biaotou" style="background-image:url(/rmyh/template/common/header/gongkai1.jpg);">信息公开</td>
+          <td width="831" style="background-image:url(/rmyh/template/common/header/gongkai2.jpg);background-repeat:repeat-x;"><table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" class="cs">
+               <tr>
+                <td width="83"><a href="/goutongjiaoliu/113456/113469/index.html"  target="_parent">新闻发布</a></td>
+                <td width="83"><a href="/tiaofasi/144941/index.html" target="_parent">法律法规</a></td>
+                <td width="83"><a href="/rmyh/105145/index.html"  target="_parent">货币政策</a></td>
+                <td width="83"><a href="/huobizhengceersi/214481/index.html"  target="_parent">宏观审慎</a></td>
+                <td width="83"><a href="/xindaishichangsi/5443861/index.html"  target="_parent">信贷政策</a></td>
+                <td width="83"><a href="/jinrongshichangsi/147160/index.html"  target="_parent">金融市场</a></td>
+                <td width="83"><a href="/jinrongwendingju/146766/index.html"  target="_parent">金融稳定</a></td>
+                <td width="83"><a href="/diaochatongjisi/116219/index.html" target="_parent">调查统计</a></td>
+                <td width="83"><a href="/kuaijicaiwusi/145920/index.html"  target="_parent">银行会计</a></td>
+                <td width="84"style="border-right-style:none;"><a href="/zhifujiesuansi/128525/index.html"  target="_parent">支付体系</a></td>
+                
+              </tr>
+              <tr>
+                <td colspan="10" style="border-right-style:none; height:6px;"></td>
+              </tr>
+              <tr>
+                <td width="83"><a href="/kejisi/146812/index.html"  target="_parent">金融科技</a></td>
+                <td width="83"><a href="/huobijinyinju/147948/index.html"  target="_parent">人民币</a></td>
+                <td width="83"><a href="/guokuju/136142/index.html"  target="_parent">经理国库</a></td>
+                <td width="83"><a href="/guojisi/144449/index.html"  target="_parent">国际交往</a></td>
+                <td width="83"><a href="/renshisi/144501/144513/index.html"  target="_parent">人员招录</a></td>
+                <td width="83"><a href="/yanjiuju/3911332/index.html"  target="_parent">学术交流</a></td>
+                <td width="83"><a href="/zhengxinguanliju/128332/index.html"  target="_parent">征信管理</a></td>
+                <td width="83"><a href="/fanxiqianju/135153/index.html"  target="_parent">反洗钱</a></td>
+                <td width="83"><a href="/dangweixuanchuanbu/110698/index.html" target="_parent">党建工作</a></td>
+                <td width="84" style="border-right-style:none;"></td>
+                
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+    </div>
+    <div class="logo2 logo3" role="region" aria-label="互动服务导航区">
+      <table width="950" height="100%" cellpadding="0" cellspacing="0" border="0" role="navigation">
+        <tr>
+          <td width="119" id="biaotou" style="background-image:url(/rmyh/template/common/header/fuwu1.jpg);">服务互动</td>
+          <td width="831" style="background-image:url(/rmyh/template/common/header/fuwu2.jpg);background-repeat:repeat-x"><table width="831" height="100%" cellpadding="0" cellspacing="0" border="0" 
+
+class="cs">
+              <tr>
+                <td width="83"><a href="/zhengwugongkai/4081330/4081338/index.html" target="_parent">政务公开</a></td>
+                <td width="83"><a href="/rmyh/3963412/index.html"  target="_blank">政策解读</a></td>
+                <td width="83"><a href="/rmyh/105208/index.html" target="_parent">公告信息</a></td>
+                <td width="83"><a href="http://wzdt.pbc.gov.cn:8080/eportal/ui?pageId=105235" target="_blank" >图文直播</a></td>
+                <td width="83"><a href="/redianzhuanti/118742/4122386/index.html" target="_blank">央行研究</a></td>
+                <td width="83"><a href="http://www.pbc.gov.cn/rmyh/105232/index.html" target="_parent">音频视频</a></td>
+                <td width="83"><a href="/rmyh/105205/index.html" target="_parent">市场动态</a></td>
+                <td width="83"><a href="/rmyh/105247/index.html" target="_parent">网上展厅</a></td>
+                <td width="83"><a href="/rmyh/106866/index.html" target="_parent">报告下载</a></td>
+                <td width="84" style="border-right-style:none;"><a href="/rmyh/105223/index.html" target="_parent">报刊年鉴</a></td>
+              </tr>
+              <tr>
+                <td colspan="10" style="border-right-style:none; height:6px;"></td>
+              </tr>
+              <tr>
+                <td width="83"><a href="/chubanwu/114566/index.html" target="_parent">网送文告</a></td>
+                <td width="83"><a href="/rmyh/107046/index.html"  target="_parent">办事大厅</a></td>
+                <td width="83"><a href="/rmyh/107046/107162/index.html" target="_parent">在线申报</a></td>
+                <td width="83"><a href="/rmyh/107046/107165/index.html" target="_parent">下载中心</a></td>
+                <td width="83"><a href="http://wzdt.pbc.gov.cn:8080/eportal/ui?pageId=105244" target="_parent">网上调查</a></td>
+                <td width="83"><a href="/tiaofasi/144941/144979/index.html" target="_parent">意见征集</a></td>
+                <td width="83"><a href="/goutongjiaoliu/113456/113466/index.html"   target="_parent">金融知识</a></td>
+                <td width="83" style="border-right-style:none;"><a href="/rmyh/105226/index.html"   target="_parent">关于我们</a></td>
+                <td width="84" style="border-right-style:none;"></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>  <div class="mainw950"> 
+   <table class="hui12" align="center" border="0" cellpadding="0" cellspacing="0" width="950"> 
+    <tbody> 
+     <tr bgcolor="#f0f0f0"> 
+      <td style="BORDER-BOTTOM: #d0d0d0 1px solid" height="28" width="50"><a href="/rmyh/index.html"><img style="PADDING-LEFT: 8px; PADDING-RIGHT: 5px; PADDING-TOP: 2px" src="/rmyh/uiFramework/images/pbcimage/indexbtn.jpg" border="0" height="21" width="50" /></a> </td> 
+      <td style="BORDER-BOTTOM: #d0d0d0 1px solid" class="hui12" align="left" valign="center"> <script language="JavaScript" type="text/javascript" content="text/html; charset=utf-8">     
+var day=""; 
+var month=""; 
+var ampm=""; 
+var ampmhour=""; 
+var myweekday=""; 
+var year=""; 
+mydate=new Date(); 
+myweekday=mydate.getDay(); 
+mymonth=mydate.getMonth()+1; 
+myday= mydate.getDate(); 
+myyear= mydate.getYear(); 
+year=(myyear > 200) ? myyear : 1900 + myyear; 
+if(myweekday == 0) 
+weekday=" 星期日 "; 
+else if(myweekday == 1) 
+weekday=" 星期一 "; 
+else if(myweekday == 2) 
+weekday=" 星期二 "; 
+else if(myweekday == 3) 
+weekday=" 星期三 "; 
+else if(myweekday == 4) 
+weekday=" 星期四 "; 
+else if(myweekday == 5) 
+weekday=" 星期五 "; 
+else if(myweekday == 6) 
+weekday=" 星期六 "; 
+document.write(year+"年"+mymonth+"月"+myday+"日 "+weekday); 
+  </script> 　| 我的位置：<span id="dangqian"><span><a class='SkinObject' href='/rmyh/101246/index.html' target='_parent'>首页</a> > <a class='SkinObject' href='/rmyh/107046/index.html' target='_parent'>办事大厅</a> > <a class='SkinObject' href='/rmyh/107046/107165/index.html' target='_parent'>下载中心</a></span></span> </td> 
+      <td style="BORDER-BOTTOM: #d0d0d0 1px solid" width="260"> 
+       <div id="search" runat="server" name="搜索" class=" column">
+          <link rel="stylesheet" type="text/css" href="/rmyh/template/module/search/container.css" />
+<div align="left" class="portlet-header">
+ <span id="menu"></span>
+ <div id="submenu10912" class="shadow dn">
+  <ul class="float_list_ul">
+     </ul>
+ </div>
+</div> 
+<form class="searach_form portlet" action="http://wzdig.pbc.gov.cn:8080/search/pcRender" method="get" id="10912" target="_blank" onsubmit="return checkVal();" style="$portletStyle" pagemoduleid="13334"> 
+ <input type="hidden" name="pageId" id="pageId" value="fa445f64514c40c68b1c8ffe859c649e" /> 
+ <input type="hidden" name="ext" id="ext" value="-siteId:3688005" /> 
+ <input id="ty" name="ty" type="hidden" /> 
+ <input id="dr" name="dr" type="hidden" value="true" /> 
+ <input id="true" name="w" type="hidden" /> 
+ <input id="f" name="f" type="hidden" /> 
+ <input id="rp" name="rp" type="hidden" /> 
+ <input id="sr" name="sr" type="hidden" value="score desc" /> 
+ <table width="260" border="0" cellspacing="0" cellpadding="0"> 
+  <tbody> 
+   <tr> 
+    <td valign="middle" width="150" class="hui12"> <input type="text" size="16" class="inputkuang1" autocomplete="off" id="q" name="q" value="" placeholder="请输入搜索关键字" role="search" aria-label="搜索区" /> </td> 
+    <td valign="middle" width="50" class="hui12"> <button type="submit" style="padding: 0;border: none;"><img src="/rmyh/uiFramework/images/pbcimage/index_r3_c57.jpg" width="40" height="22" border="0" /></button> </td> 
+    <td valign="middle" width="60" class="hui12"> <a href="javascript:;" onclick="window.open('http://wzdig.pbc.gov.cn:8080/search/pcRender?pageId=d55d03ab47b14e86879d1993e8a0ff7c')" class="colorls">高级搜索</a> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+</form>        </div></td> 
+      <td style="BORDER-BOTTOM: #d0d0d0 1px solid" class="hui12" valign="center"></td> 
+     </tr> 
+     <tr> 
+      <td colspan="2" height="15"></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <table align="center" border="0" cellpadding="0" cellspacing="0" width="950"> 
+    <tbody> 
+     <tr> 
+      <td valign="top" width="220"> 
+       <!--左侧内容--> 
+       <div id="l_con" runat="server" name="左侧内容" class=" column">
+          <div align="left" class="portlet-header"> 
+ <span id="menu"></span> 
+ <div id="submenu10911" class="shadow dn"> 
+  <ul class="float_list_ul">
+      </ul> 
+ </div> 
+</div> 
+<table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" id="10911" class=" portlet" style="$portletStyle"> 
+ <tbody> 
+  <tr> 
+   <td align="center" valign="middle"> 
+    <table width="220" height="32" border="0" cellpadding="0" cellspacing="0"> 
+     <tbody> 
+      <tr> 
+       <td align="left" bgcolor="#e1e1e1" class="newbox2011">  办事大厅 </td> 
+      </tr> 
+     </tbody> 
+    </table></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="qhkuang2" style="background-color:#e8eff7;"> 
+ <tbody> 
+  <tr> 
+   <td align="center" valign="top"><div role="region" aria-label="栏目导航区">
+<table class='left_menu_table_style' border='0' cellspacing='0' cellpadding='0' >
+   	      <tr>
+        <td height='5'></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr class="newxu">
+        <td><img src='/rmyh/uiFramework/images/pbcimage/newdian.jpg' /></td>
+        <td width='181' colspan='2' class='guidlevel01_style1'  ><a href='/zhengwugongkai/4081330/4081344/4081407/4081699/index.html' style="color:#666666;TEXT-DECORATION:none;margin-left:5px;font-size:14px;">行政审批指南</a></td>
+    </tr>
+         <tr>
+        <td height='5'></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr class="newxu">
+        <td><img src='/rmyh/uiFramework/images/pbcimage/newdian.jpg' /></td>
+        <td width='181' colspan='2' class='guidlevel01_style1'  ><a href='/rmyh/107046/107162/index.html' style="color:#666666;TEXT-DECORATION:none;margin-left:5px;font-size:14px;">在线申报</a></td>
+    </tr>
+         <tr>
+        <td height='5'></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr class="newxu">
+        <td><img src='/rmyh/uiFramework/images/pbcimage/newdian.jpg' /></td>
+        <td width='181' colspan='2' class='guidlevel01_style1'  ><a href='/rmyh/107046/107165/index.html' style="color:#666666;TEXT-DECORATION:none;margin-left:5px;font-size:14px;">下载中心</a></td>
+    </tr>
+         <tr>
+        <td height='5'></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr class="newxu">
+        <td><img src='/rmyh/uiFramework/images/pbcimage/newdian.jpg' /></td>
+        <td width='181' colspan='2' class='guidlevel01_style1'  ><a href='/rmyh/107046/3321503/index.html' style="color:#666666;TEXT-DECORATION:none;margin-left:5px;font-size:14px;">行政审批事项网上办理平台</a></td>
+    </tr>
+      <tr>
+        <td height='30'></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</div>
+</td> 
+  </tr> 
+ </tbody> 
+</table>        </div></td> 
+      <td width="10"></td> 
+      <td valign="top" width="720"> 
+       <table style="BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid" bgcolor="#f6f6f6" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+        <tbody> 
+         <tr> 
+          <td align="center" valign="top"> 
+           <table border="0" cellpadding="0" cellspacing="0" width="100%"> 
+            <tbody> 
+             <tr> 
+              <td class="buleB16" align="center" height="60" valign="center"> <script>document.write(document.getElementsByTagName('title')[0].innerHTML)</script></td> 
+             </tr> 
+            </tbody> 
+           </table> 
+           <div style="PADDING-BOTTOM: 20px" class="right_cont column" id="r_con" runat="server" name="右侧内容" role="region" aria-label="栏目信息内容区">
+              <div style="$portletStyle" id="d786d7f2e3e2472aa1f0946986028ac3" class=" portlet"> 
+ <div align="left" class="portlet-header"> 
+  <span id="menu"></span> 
+  <div id="submenud786d7f2e3e2472aa1f0946986028ac3" class="shadow dn"> 
+   <ul class="float_list_ul">
+        </ul> 
+  </div> 
+ </div> 
+ <table width="95%" border="0" cellpadding="0" cellspacing="0"> 
+  <tbody> 
+   <tr> 
+    <td height="12" align="left" class="xuxian"> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table width="92%" border="0" cellspacing="0" cellpadding="0"> 
+  <tbody> 
+   <tr> 
+    <td height="35" align="left" valign="bottom"><a href="https://www.chinamoney.com.cn/chinese/whsc/" id="urll" class="lan14cu">外汇市场表单</a></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table width="92%" border="0" cellspacing="0" cellpadding="0"> 
+  <tbody> 
+   <tr> 
+    <td align="left"></td> 
+    <td align="left"></td> 
+    <td height="10" align="left"></td> 
+   </tr> 
+   <tr> 
+    <td width="5%" colspan="2" align="left"> </td> 
+    <td align="left" valign="top" width="95%"> 
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%" opentype="page"> 
+ <tbody> 
+  <tr> 
+   <td height="22" style="display:none;"></td> 
+  </tr> 
+ </tbody> 
+</table> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+</div>  <div style="$portletStyle" id="10924" class=" portlet"> 
+ <div align="left" class="portlet-header"> 
+  <span id="menu"></span> 
+  <div id="submenu10924" class="shadow dn"> 
+   <ul class="float_list_ul">
+        </ul> 
+  </div> 
+ </div> 
+ <table width="95%" border="0" cellpadding="0" cellspacing="0"> 
+  <tbody> 
+   <tr> 
+    <td height="12" align="left" class="xuxian"> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table width="92%" border="0" cellspacing="0" cellpadding="0"> 
+  <tbody> 
+   <tr> 
+    <td height="35" align="left" valign="bottom"><a href="https://www.chinamoney.com.cn/chinese/bbsc/" id="urll" class="lan14cu">银行间市场表单</a></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table width="92%" border="0" cellspacing="0" cellpadding="0"> 
+  <tbody> 
+   <tr> 
+    <td align="left"></td> 
+    <td align="left"></td> 
+    <td height="10" align="left"></td> 
+   </tr> 
+   <tr> 
+    <td width="5%" colspan="2" align="left"> </td> 
+    <td align="left" valign="top" width="95%"> 
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%" style="clear:both;" opentype="page"> 
+ <tbody> 
+  <tr> 
+   <td height="22" style="display:none;"><a href="/rmyh/105208/5807830/index.html" onclick="void(0)" target="_blank" title="关于第十三届“中华慈善奖”拟推荐项目的公示">关于第十三届“中华慈善奖”拟推荐项目的公示</a></td> 
+  </tr> 
+ </tbody> 
+</table> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+</div>            </div></td> 
+         </tr> 
+        </tbody> 
+       </table></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div><script type="text/javascript" language="javascript">
+
+ /*设为主页*/
+function setHome(obj){
+ obj.style.behavior='url(#default#homepage)'; 
+ obj.setHomePage('http://www.pbc.gov.cn');
+ 
+ return false;
+}
+
+/*加入收藏*/
+function bookmarkit(){
+	switch(getOs()){
+		case 1:
+			window.external.addFavorite('http://www.pbc.gov.cn','中国人民银行');
+				break;
+		case 2:
+			window.sidebar.addPanel('中国人民银行', 'http://www.pbc.gov.cn', "");
+				break;
+		case 0:
+			alert("加入收藏失败，您使用的浏览器不支持这个功能");
+				break;
+	}
+}
+
+function getOs() { 
+	if(navigator.userAgent.indexOf("MSIE")>0)return 1; 
+	if(navigator.userAgent.indexOf("Firefox")>0)return 2; 
+	return 0; 
+} 
+
+ 
+</script>
+<style>
+.footer{ width:950px; height:auto; margin:0 auto;color: #666666; font-size:12px;}
+.footer a{color: #666666;text-decoration: none;}
+</style>
+
+<div class="footer" role="region" aria-label="底部区域">
+  <table width="950" height="140" border="0" align="center" cellpadding="0" cellspacing="0" background="/rmyh/template/common/footer/bottomBg.jpg">
+    <tr>
+      <td align="center" valign="top" style="padding-top:25px;"><table width="90%" border="0" cellspacing="0" cellpadding="0">
+         <tr> 
+<td  align="center" valign="middle" ><script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/33/000/0000/40672588/CA330000000406725880001.js' type='text/javascript'%3E%3C/script%3E"));</script>  </td>
+<td  align="center" valign="middle" > <script id="_jiucuo_" sitecode='bm25000001' src='https://zfwzgl.www.gov.cn/exposure/jiucuo.js'></script> </td>
+<td align="center" valign="middle">
+<table>
+<tr>
+            <td height="20" align="center" valign="middle" style="color:#666666"><A onClick="window.open ('/rmyh/109345/index.html','go', 'height=375, width=700, top=150, left=170, toolbar=no, menubar=no, scrollbars=no,resizable=no,location=no, status=no')" href="#" >法律声明</A> | <a href="/bangongting/135485/3310241/index.html">联系我们</a> | <a href="#" onClick="setHome(this)">设为首页</a> | <a href="#" onClick="bookmarkit()">加入收藏</a> | <a href="/rmyh/109342/index.html" target="_blank">网站地图</a></td>
+          </tr>
+         
+          <tr>
+            <td height="20" align="center" valign="middle" style="color:#666666"><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备05073439号</a> 网站标识码：bm25000001 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202000016" ><img src="/rmyh/resource/cms/2019/07/img_pc_site/beian.png" width="14"/>京公网安备 11010202000016号</a></td>
+
+<tr>
+            <td height="20" align="center" valign="middle" style="color:#666666">网站主办单位：中国人民银行办公厅　最佳分辨率：1024*768</td>
+</tr><tr/>
+</table>
+</td>
+<td  align="center" valign="middle" > <img src="/rmyh/resource/cms/2021/06/img_pc_site/weixin.jpg" style="height: 80px; width: 80px;" /><p>微信</p></td>
+<td  align="center" valign="middle" > <img src="/rmyh/resource/cms/2021/06/img_pc_site/weibo.jpg" style="height: 80px; width: 80px;" /> <p>微博</p></td>
+          </tr>
+        </table></td>
+
+    </tr>
+  </table>
+</div>  <script>
+$(function(){
+var a_one=$("#dangqian").find("a");
+var a_two="中国人民银行";
+for(var o=1;o<a_one.length;o++){
+a_two+="-"+a_one.eq(o).text();
+}
+document.title=a_two;
+})
+</script><div style="display:none" easysite="easysiteHiddenDiv">
+<input type="hidden"  id="currentLoginUserLoginName"/>
+<input type="hidden"  id="currentLoginUserLoginId"/>
+</div> </body>
+</html>
