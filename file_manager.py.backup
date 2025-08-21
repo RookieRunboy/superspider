@@ -186,10 +186,6 @@ class FileManager:
             # 重命名文件
             excel_path.rename(new_file_path)
             
-            # 确保文件权限正确（可读写）
-            import stat
-            os.chmod(new_file_path, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)
-            
             return str(new_file_path)
             
         except Exception as e:

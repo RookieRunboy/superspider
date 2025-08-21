@@ -307,6 +307,9 @@ class SuperSpider:
         Returns:
             Dict[str, Any]: 执行报告
         """
+        # 获取失败的下载记录
+        failed_downloads = self.downloader.get_failed_downloads()
+        
         report = {
             'execution_time': execution_time,
             'parsed_urls': results['parsed_urls'],
@@ -316,7 +319,9 @@ class SuperSpider:
             'errors': results['errors'],
             'output_dir': str(self.config.output_dir),
             'attachments': results['attachments'],
-            'pdf_files': results['pdf_files']
+            'pdf_files': results['pdf_files'],
+            'failed_downloads_count': len(failed_downloads),
+            'failed_downloads': failed_downloads
         }
         
         # 保存报告到文件
@@ -329,7 +334,41 @@ class SuperSpider:
         except Exception as e:
             self.logger.warning(f"保存执行报告失败: {e}")
         
+        # 生成失败链接Excel报告
+        if failed_downloads:
+            self._generate_failed_downloads_excel(failed_downloads)
+        
         return report
+    
+    def _generate_failed_downloads_excel(self, failed_downloads: List[Dict[str, Any]]) -> None:
+        """生成失败下载链接的Excel报告
+        
+        Args:
+            failed_downloads: 失败下载记录列表
+        """
+        try:
+            import pandas as pd
+            
+            # 创建DataFrame
+            df = pd.DataFrame(failed_downloads)
+            
+            # 重新排列列的顺序，使其更易读
+            columns_order = ['page_title', 'filename', 'url', 'error_type', 'error']
+            df = df.reindex(columns=columns_order)
+            
+            # 重命名列名为中文
+            df.columns = ['页面标题', '文件名', '下载链接', '错误类型', '错误详情']
+            
+            # 保存到Excel文件
+            excel_file = self.config.output_dir / 'failed_downloads_report.xlsx'
+            df.to_excel(excel_file, index=False, engine='openpyxl')
+            
+            self.logger.info(f"失败下载报告已保存: {excel_file} (共 {len(failed_downloads)} 条记录)")
+            
+        except ImportError:
+            self.logger.warning("pandas或openpyxl未安装，无法生成Excel格式的失败报告")
+        except Exception as e:
+            self.logger.warning(f"生成失败下载Excel报告失败: {e}")
 
 
 def main():
